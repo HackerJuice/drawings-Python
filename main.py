@@ -1,10 +1,22 @@
 from tkinter import *
 
 root = Tk()
-root.geometry('900x750')
+root.geometry('900x850')
 
 myCanv = Canvas(root, width=900, height=750)
 myCanv.pack()
+
+def change_size(length):
+    global size
+    size = int(length)
+
+mySizeE = Entry(root)
+mySizeE.pack(); mySizeE.insert(0, 'Enter Size: ')
+
+mySize = Button(root, text = 'Change Size', command=lambda: change_size(mySizeE.get()))
+mySize.pack()
+
+size = 10
 
 old_x, old_y = None, None
 
